@@ -14,7 +14,12 @@ set infercase
 syntax on
 set mouse=a
 
-set completeopt=menu,menuone,noselect
+set completeopt=menu
+set completeopt+=menuone
+try
+  set completeopt+=noselect
+catch
+endtry
 set noshowmode
 set scrolloff=2
 set noruler
@@ -46,7 +51,9 @@ set foldlevelstart=99
 set foldmethod=syntax
 
 set number
-set signcolumn=yes
+if has('signcolumn')
+  set signcolumn=yes
+endif
 
 set textwidth=100
 set colorcolumn=80
