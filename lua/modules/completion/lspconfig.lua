@@ -48,6 +48,7 @@ lspconfig.clangd.setup({
 local servers = {
   'pyright', -- python
   'bashls', -- bash
+  'texlab', -- latex
 }
 
 for _, server in ipairs(servers) do

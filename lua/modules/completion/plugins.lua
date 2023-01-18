@@ -5,13 +5,19 @@ local conf = require('modules.completion.config')
 
 -- use filetype to lazyload lsp
 local enable_lsp_filetypes = {
-  'sh',
-  'c',
-  'cpp',
-  'python',
-  'java',
-  'latex',
-  'json',
+  'sh', -- bashls
+  'c', --clangd
+  'cpp', -- clangd
+  'objc', -- clangd
+  'objcpp', -- clangd
+  'cuda', -- clangd
+  'proto', -- clangd
+  'python', -- pyright
+  'java', -- java-language-server
+  'tex', -- texlab
+  'plaintex', --texlab
+  'bib', -- texlab
+  'json', -- jsonls
 }
 
 plugin({
