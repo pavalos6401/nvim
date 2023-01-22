@@ -2,9 +2,21 @@
 
 local config = {}
 
-function config.oxocarbon()
+-- function config.oxocarbon()
+--   vim.opt.background = 'dark'
+--   vim.cmd.colorscheme('oxocarbon')
+-- end
+
+function config.catppuccin()
   vim.opt.background = 'dark'
-  vim.cmd.colorscheme('oxocarbon')
+
+  local catppuccin = require('catppuccin')
+
+  catppuccin.setup({
+    flavour = "mocha",
+  })
+
+  vim.cmd.colorscheme('catppuccin')
 end
 
 function config.lualine()
