@@ -2,10 +2,10 @@
 
 local config = {}
 
--- function config.oxocarbon()
---   vim.opt.background = 'dark'
---   vim.cmd.colorscheme('oxocarbon')
--- end
+function config.oxocarbon()
+  vim.opt.background = 'dark'
+  vim.cmd.colorscheme('oxocarbon')
+end
 
 function config.catppuccin()
   vim.opt.background = 'dark'

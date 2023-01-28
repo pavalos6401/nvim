@@ -3,16 +3,16 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
--- plugin({
---   'nyoom-engineering/oxocarbon.nvim',
---   config = conf.oxocarbon,
--- })
-
 plugin({
-  'catppuccin/nvim',
-  config = conf.catppuccin,
-  as = 'catppuccin',
+  'nyoom-engineering/oxocarbon.nvim',
+  config = conf.oxocarbon,
 })
+
+-- plugin({
+--   'catppuccin/nvim',
+--   config = conf.catppuccin,
+--   as = 'catppuccin',
+-- })
 
 plugin({
   'nvim-lualine/lualine.nvim',
