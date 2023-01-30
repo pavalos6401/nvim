@@ -35,8 +35,9 @@ plugin({
 
 plugin({
   'glepnir/dashboard-nvim',
+  event = 'VimEnter',
   config = conf.dashboard,
-  requires = { 'nvim-telescope/telescope.nvim' },
+  requires = { 'nvim-tree/nvim-web-devicons', 'nvim-telescope/telescope.nvim' },
 })
 
 plugin({

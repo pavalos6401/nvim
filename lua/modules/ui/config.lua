@@ -62,9 +62,29 @@ function config.nvim_tree()
 
   local nvim_tree = require('nvim-tree')
 
-  nvim_tree.setup({
-    open_on_setup = true, -- open tree when argument is directory
-  })
+  local function open_nvim_tree(data)
+    -- buffer is a directory
+    local directory = vim.fn.isdirectory(data.file) == 1
+
+    if not directory then
+      return
+    end
+
+    -- create a new, empty buffer
+    vim.cmd.enew()
+
+    -- wipe the directory buffer
+    vim.cmd.bw(data.buf)
+
+    -- change to the directory
+    vim.cmd.cd(data.file)
+
+    -- open the tree
+    require("nvim-tree.api").tree.open()
+  end
+
+  nvim_tree.setup()
+  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 end
 
 function config.dashboard()
@@ -72,45 +92,35 @@ function config.dashboard()
     vim.cmd('packadd telescope.nvim')
   end
 
-  local cache = require('core.helper').get_cache_path()
   local db = require('dashboard')
 
-  db.session_directory = cache .. '/session'
-  db.custom_header = {
-    '                                           ',
-    '       ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆             ',
-    '        ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦           ',
-    '              ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄         ',
-    '               ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄        ',
-    '              ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀       ',
-    '       ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄      ',
-    '      ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄       ',
-    '     ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄      ',
-    '     ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄     ',
-    '          ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆         ',
-    '           ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃         ',
-    '                                           ',
-  }
-  db.custom_center = {
-    {
-      icon = '  ',
-      desc = 'Update Plugins                          ',
-      action = 'PackerUpdate',
-      shortcut = '<Leader>pu',
+  db.setup({
+    theme = 'hyper',
+    config = {
+      week_header = {
+        enable = true,
+      },
+      packages = { enable = true },
+      shortcut = {
+        {
+          desc = 'Update Plugins',
+          action = 'PackerUpdate',
+          key = 'u',
+        },
+        {
+          desc = 'Old Files',
+          action = 'Telescope oldfiles',
+          key = 'h',
+        },
+        {
+          desc = 'Files',
+          action = 'Telescope find_files',
+          key = 'f',
+        },
+      },
+      footer = {},
     },
-    {
-      icon = '  ',
-      desc = 'Old Files                               ',
-      action = 'Telescope oldfiles',
-      shortcut = '<Leader>fh',
-    },
-    {
-      icon = '  ',
-      desc = 'Find File                               ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = '<Leader>ff',
-    },
-  }
+  })
 end
 
 function config.gitsigns()
