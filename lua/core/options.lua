@@ -41,7 +41,6 @@ opt.undofile = true
 
 -- tab
 opt.smarttab = true
-opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
