@@ -7,7 +7,7 @@ opt.termguicolors = true
 opt.hidden = true
 opt.magic = true
 opt.virtualedit = 'block'
--- opt.clipboard = 'unnamed'
+opt.clipboard = 'unnamedplus'
 opt.wildignorecase = true
 opt.swapfile = false
 opt.directory = cache_dir .. '/swap/'
@@ -44,9 +44,13 @@ opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
+opt.expandtab = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
+
+-- indentation
+opt.cinoptions = 't0'
 
 -- wrap
 opt.linebreak = true
@@ -56,8 +60,10 @@ opt.showbreak = '↳ '
 opt.foldlevelstart = 99
 opt.foldmethod = 'syntax'
 
+-- gutter
 opt.number = true
 opt.signcolumn = 'yes'
 
+-- line lengths
 opt.textwidth = 100
 opt.colorcolumn = '80'
