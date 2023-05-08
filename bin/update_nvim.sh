@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
-# File: update_nvim.sh
-# Updates neovim repository
+# Updates neovim repository and plugins
 
 git -C ~/.config/nvim pull
-
-# vim: ft=sh
+nvim --headless +PackerSync +PackerUpdate +PackerCompile +qa

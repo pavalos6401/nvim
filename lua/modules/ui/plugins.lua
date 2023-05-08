@@ -1,54 +1,46 @@
--- File: plugins.lua
-
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 plugin({
-  'nyoom-engineering/oxocarbon.nvim',
-  config = conf.oxocarbon,
-})
-
--- plugin({
---   'catppuccin/nvim',
---   config = conf.catppuccin,
---   as = 'catppuccin',
--- })
-
-plugin({
-  'nvim-lualine/lualine.nvim',
-  config = conf.lualine,
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+	'nyoom-engineering/oxocarbon.nvim',
+	config = conf.oxocarbon,
 })
 
 plugin({
-  'akinsho/bufferline.nvim',
-  tag = 'v3.*',
-  config = conf.bufferline,
-  requires = 'nvim-tree/nvim-web-devicons',
+	'nvim-lualine/lualine.nvim',
+	config = conf.lualine,
+	requires = { 'nvim-tree/nvim-web-devicons', opt = true },
 })
 
 plugin({
-  'nvim-tree/nvim-tree.lua',
-  config = conf.nvim_tree,
-  requires = { 'nvim-tree/nvim-web-devicons' },
+	'akinsho/bufferline.nvim',
+	tag = 'v3.*',
+	config = conf.bufferline,
+	requires = 'nvim-tree/nvim-web-devicons',
 })
 
 plugin({
-  'glepnir/dashboard-nvim',
-  event = 'VimEnter',
-  config = conf.dashboard,
-  requires = { 'nvim-tree/nvim-web-devicons', 'nvim-telescope/telescope.nvim' },
+	'nvim-tree/nvim-tree.lua',
+	config = conf.nvim_tree,
+	requires = { 'nvim-tree/nvim-web-devicons' },
 })
 
 plugin({
-  'lewis6991/gitsigns.nvim',
-  event = { 'BufRead', 'BufNewFile' },
-  config = conf.gitsigns,
-  requires = { 'nvim-lua/plenary.nvim' },
+	'glepnir/dashboard-nvim',
+	event = 'VimEnter',
+	config = conf.dashboard,
+	requires = { 'nvim-tree/nvim-web-devicons', 'nvim-telescope/telescope.nvim' },
 })
 
 plugin({
-  'rcarriga/nvim-notify',
-  config = conf.nvim_notify,
-  requires = { 'nvim-telescope/telescope.nvim' },
+	'lewis6991/gitsigns.nvim',
+	event = { 'BufRead', 'BufNewFile' },
+	config = conf.gitsigns,
+	requires = { 'nvim-lua/plenary.nvim' },
+})
+
+plugin({
+	'rcarriga/nvim-notify',
+	config = conf.nvim_notify,
+	requires = { 'nvim-telescope/telescope.nvim' },
 })

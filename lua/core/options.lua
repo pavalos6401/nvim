@@ -1,5 +1,3 @@
--- File: options.lua
-
 local opt = vim.opt
 local cache_dir = require('core.helper').get_cache_path()
 
@@ -32,7 +30,7 @@ opt.showtabline = 1
 opt.winwidth = 30
 opt.pumheight = 15
 opt.cmdheight = 1
-opt.laststatus = 3
+opt.laststatus = 2
 opt.list = true
 opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
 opt.pumblend = 10
@@ -44,7 +42,7 @@ opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
-opt.expandtab = true
+opt.expandtab = false
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
