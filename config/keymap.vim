@@ -1,5 +1,3 @@
-" File: keymap.vim
-
 " normal mode remapping
 " close buffer
 nnoremap <silent> <C-x>k :bdelete

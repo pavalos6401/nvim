@@ -1,11 +1,8 @@
-" File: options.vim
-
 if has('termguicolors')
   set termguicolors
 endif
 
 set virtualedit=block
-" set clipboard=unnamed
 set wildignorecase
 set redrawtime=1500
 set ignorecase

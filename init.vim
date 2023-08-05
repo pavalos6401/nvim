@@ -1,5 +1,3 @@
-" File: init.vim (.vimrc)
-
 if has('nvim')
   source $HOME/.config/nvim/config/init.vim
 else

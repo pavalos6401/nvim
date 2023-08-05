@@ -1,5 +1,3 @@
-" File: pack.vim
-
 " Check if vim-plug is installed. Install if not yet installed.
 if has('nvim')
   if empty(glob('~/.config/nvim/autoload/plug.vim'))
