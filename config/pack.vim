@@ -1,5 +1,3 @@
-" File: pack.vim
-
 " Check if vim-plug is installed. Install if not yet installed.
 if has('nvim')
   if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -43,13 +41,17 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+Plug 'sainnhe/everforest'
+
 call plug#end()
 
 " Additional plugin settings
 if has('nvim')
   source $HOME/.config/nvim/config/plugs/nerdtree.vim
   source $HOME/.config/nvim/config/plugs/nerdcommenter.vim
+  source $HOME/.config/nvim/config/plugs/everforest.vim
 else
   source $HOME/.vim/config/plugs/nerdtree.vim
   source $HOME/.vim/config/plugs/nerdcommenter.vim
+  source $HOME/.vim/config/plugs/everforest.vim
 endif
