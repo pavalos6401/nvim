@@ -1,22 +1,13 @@
 " Check if vim-plug is installed. Install if not yet installed.
-if has('nvim')
-  if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
-  endif
-else
-  if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
-  endif
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute 'curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Install missing plugins.
-autocmd VimEnter *
-      \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | q
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | source $VIMRC
       \| endif
 
 set nocompatible
@@ -51,7 +42,7 @@ if has('nvim')
   source $HOME/.config/nvim/config/plugs/nerdcommenter.vim
   source $HOME/.config/nvim/config/plugs/everforest.vim
 else
-  source $HOME/.config/vim/plugs/nerdtree.vim
-  source $HOME/.config/vim/plugs/nerdcommenter.vim
-  source $HOME/.config/vim/plugs/everforest.vim
+  source $HOME/.vim/config/plugs/nerdtree.vim
+  source $HOME/.vim/config/plugs/nerdcommenter.vim
+  source $HOME/.vim/config/plugs/everforest.vim
 endif
