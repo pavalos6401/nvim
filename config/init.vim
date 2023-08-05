@@ -4,8 +4,8 @@ if has('nvim')
   source $HOME/.config/nvim/config/keymap.vim
   source $HOME/.config/nvim/config/theme.vim
 else
-  source $HOME/.vim/config/options.vim
-  source $HOME/.vim/config/pack.vim
-  source $HOME/.vim/config/keymap.vim
-  source $HOME/.vim/config/theme.vim
+  source $HOME/.config/vim/options.vim
+  source $HOME/.config/vim/pack.vim
+  source $HOME/.config/vim/keymap.vim
+  source $HOME/.config/vim/theme.vim
 endif

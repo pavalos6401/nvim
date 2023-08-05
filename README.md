@@ -6,4 +6,6 @@ The `vimscript` branch allows for a more backwards-compatible and simpler versio
 
 ## Installation
 
-For installation instructions look at the wiki in my [gitlab repo](https://gitlab.com/pavalos6401/nvim).
+If using vim, symlink or copy `init.vim` to `~/.vimrc`. Them symlink or copy `config` to `~/.config/vim`.
+
+If using neovim, you can just simlink or copy the entire repository to `~/.config/nvim`.
