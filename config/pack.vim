@@ -32,7 +32,9 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+" Themes
 Plug 'sainnhe/everforest'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
