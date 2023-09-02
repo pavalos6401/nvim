@@ -2,6 +2,12 @@ if has('termguicolors')
   set termguicolors
 endif
 
+if !isdirectory($XDG_DATA_HOME."/vim")
+  call mkdir($XDG_DATA_HOME."/vim", "p", 0700)
+endif
+set directory=$XDG_DATA_HOME/vim
+set backupdir=$XDG_DATA_HOME/vim
+
 set virtualedit=block
 set wildignorecase
 set redrawtime=1500
