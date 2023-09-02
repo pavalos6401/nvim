@@ -2,11 +2,26 @@ if has('termguicolors')
   set termguicolors
 endif
 
-if !isdirectory($XDG_DATA_HOME."/vim")
-  call mkdir($XDG_DATA_HOME."/vim", "p", 0700)
+if !has('nvim')
+  if empty($XDG_DATA_HOME)
+    let $XDG_DATA_HOME=$HOME.'/.local/share'
+  endif
+
+  if !isdirectory($XDG_DATA_HOME.'/vim/swap')
+    call mkdir($XDG_DATA_HOME.'/vim/swap', "p", 0700)
+  endif
+  if !isdirectory($XDG_DATA_HOME.'/vim/backup')
+    call mkdir($XDG_DATA_HOME.'/vim/backup', "p", 0700)
+  endif
+  if !isdirectory($XDG_DATA_HOME.'/vim/undo')
+    call mkdir($XDG_DATA_HOME.'/vim/undo', "p", 0700)
+  endif
+
+  set directory=$XDG_DATA_HOME/vim/swap/
+  set backupdir=$XDG_DATA_HOME/vim/backup/
+  set undodir=$XDG_DATA_HOME/vim/undo
+  set undofile
 endif
-set directory=$XDG_DATA_HOME/vim
-set backupdir=$XDG_DATA_HOME/vim
 
 set virtualedit=block
 set wildignorecase
