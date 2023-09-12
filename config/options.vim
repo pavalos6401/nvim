@@ -23,42 +23,30 @@ if !has('nvim')
   set undofile
 endif
 
+set wildignorecase ignorecase smartcase infercase
 set virtualedit=block
-set wildignorecase
 set redrawtime=1500
-set ignorecase
-set smartcase
-set infercase
-syntax on
 set mouse=a
+syntax on
 
+set noshowmode noruler list
 set completeopt=menu
 set completeopt+=menuone
 try
   set completeopt+=noselect
 catch
 endtry
-set noshowmode
 set scrolloff=2
-set noruler
 set showtabline=1
 set winwidth=30
 set pumheight=15
 set cmdheight=1
 set laststatus=2
-set list
-set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
+set listchars=tab:\ \ ,nbsp:+,trail:·,extends:→,precedes:←
 
 " tab
-set smarttab
-set expandtab
-set autoindent
-set smartindent
-set smartindent
-set shiftround
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set smarttab noexpandtab autoindent  smartindent shiftround
+set tabstop=2 shiftwidth=2 softtabstop=2
 
 " wrap
 set linebreak
