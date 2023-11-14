@@ -34,8 +34,12 @@ let &t_VS = "\e[?12l"
 " Focus tracking
 let &t_fe = "\e[?1004h"
 let &t_fd = "\e[?1004l"
-execute "set <FocusGained>=\<Esc>[I"
-execute "set <FocusLost>=\<Esc>[O"
+if has('FocusGained')
+  execute "set <FocusGained>=\<Esc>[I"
+endif
+if has('FocusLost')
+  execute "set <FocusLost>=\<Esc>[O"
+endif
 " Window title
 let &t_ST = "\e[22;2t"
 let &t_RT = "\e[23;2t"
