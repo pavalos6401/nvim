@@ -46,9 +46,11 @@ if has('nvim')
   source $HOME/.config/nvim/config/plugs/nerdcommenter.vim
   source $HOME/.config/nvim/config/plugs/everforest.vim
   source $HOME/.config/nvim/config/plugs/startify.vim
+  source $HOME/.config/nvim/config/plugs/vimtex.vim
 else
   source $HOME/.vim/config/plugs/nerdtree.vim
   source $HOME/.vim/config/plugs/nerdcommenter.vim
   source $HOME/.vim/config/plugs/everforest.vim
   source $HOME/.vim/config/plugs/startify.vim
+  source $HOME/.vim/config/plugs/vimtex.vim
 endif

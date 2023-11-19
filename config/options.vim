@@ -50,6 +50,7 @@ let &t_RT = "\e[23;2t"
 " kitty that do not support background color erase.
 let &t_ut=''
 
+" Make vim use XDG directories for backups &c...
 if !has('nvim')
   if empty($XDG_DATA_HOME)
     let $XDG_DATA_HOME=$HOME.'/.local/share'
