@@ -3,37 +3,89 @@ if has('termguicolors')
 endif
 
 " Styled and colored underline support
-let &t_AU = "\e[58:5:%dm"
-let &t_8u = "\e[58:2:%lu:%lu:%lum"
-let &t_Us = "\e[4:2m"
-let &t_Cs = "\e[4:3m"
-let &t_ds = "\e[4:4m"
-let &t_Ds = "\e[4:5m"
-let &t_Ce = "\e[4:0m"
+if has('&t_AU')
+  let &t_AU = "\e[58:5:%dm"
+endif
+if has('&t_8u')
+  let &t_8u = "\e[58:2:%lu:%lu:%lum"
+endif
+if has('&t_Us')
+  let &t_Us = "\e[4:2m"
+endif
+if has('&t_Cs')
+  let &t_Cs = "\e[4:3m"
+endif
+if has('&t_ds')
+  let &t_ds = "\e[4:4m"
+endif
+if has('&t_Ds')
+  let &t_Ds = "\e[4:5m"
+endif
+if has('&t_Ce')
+  let &t_Ce = "\e[4:0m"
+endif
 " Strikethrough
-let &t_Ts = "\e[9m"
-let &t_Te = "\e[29m"
+if has('&t_Ts')
+  let &t_Ts = "\e[9m"
+endif
+if has('&t_Te')
+  let &t_Te = "\e[29m"
+endif
 " Truecolor support
-let &t_8f = "\e[38:2:%lu:%lu:%lum"
-let &t_8b = "\e[48:2:%lu:%lu:%lum"
-let &t_RF = "\e]10;?\e\\"
-let &t_RB = "\e]11;?\e\\"
+if has('&t_8f')
+  let &t_8f = "\e[38:2:%lu:%lu:%lum"
+endif
+if has('&t_8b')
+  let &t_8b = "\e[48:2:%lu:%lu:%lum"
+endif
+if has('&t_RF')
+  let &t_RF = "\e]10;?\e\\"
+endif
+if has('&t_RB')
+  let &t_RB = "\e]11;?\e\\"
+endif
 " Bracketed paste
-let &t_BE = "\e[?2004h"
-let &t_BD = "\e[?2004l"
-let &t_PS = "\e[200~"
-let &t_PE = "\e[201~"
+if has('&t_BE')
+  let &t_BE = "\e[?2004h"
+endif
+if has('&t_BD')
+  let &t_BD = "\e[?2004l"
+endif
+if has('&t_PS')
+  let &t_PS = "\e[200~"
+endif
+if has('&t_PE')
+  let &t_PE = "\e[201~"
+endif
 " Cursor control
-let &t_RC = "\e[?12$p"
-let &t_SH = "\e[%d q"
-let &t_RS = "\eP$q q\e\\"
-let &t_SI = "\e[5 q"
-let &t_SR = "\e[3 q"
-let &t_EI = "\e[1 q"
-let &t_VS = "\e[?12l"
+if has('&t_RC')
+  let &t_RC = "\e[?12$p"
+endif
+if has('&t_SH')
+  let &t_SH = "\e[%d q"
+endif
+if has('&t_RS')
+  let &t_RS = "\eP$q q\e\\"
+endif
+if has('&t_SI')
+  let &t_SI = "\e[5 q"
+endif
+if has('&t_SR')
+  let &t_SR = "\e[3 q"
+endif
+if has('&t_EI')
+  let &t_EI = "\e[1 q"
+endif
+if has('&t_VS')
+  let &t_VS = "\e[?12l"
+endif
 " Focus tracking
-let &t_fe = "\e[?1004h"
-let &t_fd = "\e[?1004l"
+if has('&t_fe')
+  let &t_fe = "\e[?1004h"
+endif
+if has('&t_fd')
+  let &t_fd = "\e[?1004l"
+endif
 if has('FocusGained')
   execute "set <FocusGained>=\<Esc>[I"
 endif
@@ -41,8 +93,12 @@ if has('FocusLost')
   execute "set <FocusLost>=\<Esc>[O"
 endif
 " Window title
-let &t_ST = "\e[22;2t"
-let &t_RT = "\e[23;2t"
+if has('&t_ST')
+  let &t_ST = "\e[22;2t"
+endif
+if has('&t_RT')
+  let &t_RT = "\e[23;2t"
+endif
 
 " vim hardcodes background color erase even if the terminfo file does
 " not contain bce. This causes incorrect background rendering when
@@ -75,7 +131,9 @@ endif
 " Mouse support
 set mouse=a
 set ttymouse=sgr
-set balloonevalterm
+if has('balloonevalterm')
+  set balloonevalterm
+endif
 
 set wildignorecase ignorecase smartcase infercase
 set virtualedit=block
