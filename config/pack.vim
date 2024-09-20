@@ -25,6 +25,7 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
+Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'rafamadriz/friendly-snippets'
 
