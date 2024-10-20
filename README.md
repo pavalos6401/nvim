@@ -2,15 +2,24 @@
 
 My (neo)vim configuration files.
 
-The `vimscript` branch allows for a more backwards-compatible and simpler
-version of my neovim configuration. Since I almost entirely use neovim, the
-intent behind my `vimscript` branch is to have a version that works on the
-older versions of vim and neovim that my university's lab machines have
-installed.
+I use the `vimscript` branch for my Vim configuration and for lab machines
+that have an older version of Neovim. This configuration should be fairly
+compatible with any system.
 
 ## Installation
 
-If using vim, clone the repository to `~/.vim` and symlink or copy `init.vim`
-to `~/.vimrc`
+You can install this configuration for Vim, along with the rest of my dotfiles,
+using my [dotfiles repo](https://gitlab.com/pedro-avalos/dotfiles).
 
-If using neovim, just clone the repository to `~/.config/nvim`.
+Otherwise, if you want to just install this configuration for Vim:
+
+```shell
+git clone https://gitlab.com/pedro-avalos/nvim.git --branch vimscript ~/.vim
+ln -s ~/.vim/init.vim ~/.vimrc
+```
+
+If you want to install it for Neovim:
+
+```shell
+git clone https://gitlab.com/pedro-avalos/nvim.git --branch vimscript ~/.config/nvim
+```
